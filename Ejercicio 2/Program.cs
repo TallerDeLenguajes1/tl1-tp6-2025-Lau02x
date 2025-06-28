@@ -8,12 +8,34 @@ int eleccion=0;
 float num1=0;
 float num2 = 0;
 float resultado;
+float numsolitario = 0;
+int parteEntera = 0;
 do
 {
     do
     {
+
+    Console.WriteLine("ELIJA un Numero:");
+        texto = Console.ReadLine();
+        if (!float.TryParse(texto, out numsolitario))
+        {
+            Console.WriteLine("La cadena es un texto, intentar de nuevo");
+        }
+    } while (!float.TryParse(texto, out numsolitario));
+
+        parteEntera = (int) numsolitario;
+        Console.WriteLine($"Valor Absoluto del Numero:{Math.Abs(numsolitario)}");
+        Console.WriteLine($"El cuadrado del numero es: {Math.Pow(numsolitario,2)}");
+        Console.WriteLine($"La raiz cuadrada del numero es: {Math.Sqrt(numsolitario)}");
+        Console.WriteLine($"El seno del numero es: {Math.Sin(numsolitario)}");
+        Console.WriteLine($"El coseno del numero es: {Math.Cos(numsolitario)}");
+        Console.WriteLine($"La parte entera del numero float es: {parteEntera}");
+
+        
+    do
+    {
         Console.WriteLine("---Menu---");
-        Console.WriteLine("Elegir una operacion para realizar: \n 1:Sumar \n 2:Restar \n 3:Multiplicar\n4:Dividir");
+        Console.WriteLine("Elegir una operacion para realizar: \n 1:Sumar \n 2:Restar \n 3:Multiplicar\n4:Dividir\n5:Valor Absoluto\n6:Cuadrado\n7:Raiz Cuadrada\n8:Seno\n9:Coseno\n10:Parte entera de un float");
         texto = Console.ReadLine();
         eleccion = int.Parse(texto);
     } while (eleccion <= 0 || eleccion > 4);
@@ -36,6 +58,12 @@ do
         texto = Console.ReadLine();
         num2 = float.Parse(texto);
     }
+
+    switch (eleccion)
+    {
+
+    }
+
     switch (eleccion)
     {
         case 1:
@@ -54,6 +82,7 @@ do
             resultado = num1 / num2;
             Console.WriteLine($"division entre {num1} y {num2} es: {resultado}");
             break;
+
         default:
             break;
     }
