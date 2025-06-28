@@ -8,37 +8,57 @@ int eleccion=0;
 float num1=0;
 float num2 = 0;
 float resultado;
-Console.WriteLine("---Menu---");
-Console.WriteLine("Elegir una operacion para realizar: \n 1:Sumar \n 2:Restar \n 3:Multiplicar\n4:Dividir");
-texto =Console.ReadLine();
-eleccion =int.Parse(texto);
-Console.WriteLine("Elegir primer numero :");
-texto = Console.ReadLine();
-num1 = float.Parse(texto);
 do
 {
-    Console.WriteLine("Elegir segundo numero distinto de 0 :");
-    texto = Console.ReadLine();
-    num2 = float.Parse(texto);
-} while (eleccion == 0);
+    do
+    {
+        Console.WriteLine("---Menu---");
+        Console.WriteLine("Elegir una operacion para realizar: \n 1:Sumar \n 2:Restar \n 3:Multiplicar\n4:Dividir");
+        texto = Console.ReadLine();
+        eleccion = int.Parse(texto);
+    } while (eleccion <= 0 || eleccion > 4);
 
-switch (eleccion)
-{
-    case 1:
-        Console.WriteLine($"Suma entre {num1} y {num2}");
-        resultado= num1 + num2;
-        break;
-    case 2: 
-            Console.WriteLine($"resta entre {num1} y {num2}");
+    Console.WriteLine("Elegir primer numero :");
+    texto = Console.ReadLine();
+    num1 = float.Parse(texto);
+    if (eleccion == 4)
+    {
+        do
+        {
+            Console.WriteLine("Elegir segundo numero distinto de 0 :");
+            texto = Console.ReadLine();
+            num2 = float.Parse(texto);
+        } while (num2 == 0);
+    }
+    else
+    {
+        Console.WriteLine("Elegir segundo numero:");
+        texto = Console.ReadLine();
+        num2 = float.Parse(texto);
+    }
+    switch (eleccion)
+    {
+        case 1:
+            resultado = num1 + num2;
+            Console.WriteLine($"Suma entre {num1} y {num2} es : {resultado}");
+            break;
+        case 2:
             resultado = num1 - num2;
+            Console.WriteLine($"resta entre {num1} y {num2} es: {resultado}");
             break;
-    case 3: 
-            Console.WriteLine($"multiplicar entre {num1} y {num2}");
+        case 3:
             resultado = num1 * num2;
-            break;            
-    case 4: 
-            Console.WriteLine($"division entre {num1} y {num2}");
-            resultado = num1 / num2;
+            Console.WriteLine($"multiplicacion entre {num1} y {num2} es: {resultado}");
             break;
-    default:
-}
+        case 4:
+            resultado = num1 / num2;
+            Console.WriteLine($"division entre {num1} y {num2} es: {resultado}");
+            break;
+        default:
+            break;
+    }
+
+    Console.WriteLine("Desea seguir operando? 1:Seguir, 0:salir");
+    texto = Console.ReadLine();
+    eleccion = int.Parse(texto);
+} while (eleccion != 0);
