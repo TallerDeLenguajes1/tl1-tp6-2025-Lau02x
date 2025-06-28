@@ -5,7 +5,7 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
-            "program": "${workspaceFolder}Ejercicio2/bin/Debug/net8.0/Ejercicio 2.dll",
+            "program": "${workspaceFolder}Ejercicio 2/bin/Debug/net8.0/Ejercicio 2.dll",
             "args": [],
             "cwd": "${workspaceFolder}",
             "stopAtEntry": false,

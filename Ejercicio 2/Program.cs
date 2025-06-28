@@ -31,11 +31,31 @@ do
         Console.WriteLine($"El coseno del numero es: {Math.Cos(numsolitario)}");
         Console.WriteLine($"La parte entera del numero float es: {parteEntera}");
 
-        
+    do
+    {
+        Console.WriteLine("---Elija 2 numeros para determinar el maximo y el minimo entre ellos---");
+        Console.WriteLine("Elija el primer num:");
+        texto = Console.ReadLine();
+        if (!float.TryParse(texto, out num1))
+        {
+            Console.WriteLine("La cadena es un texto, intentar de nuevo");
+            continue;
+        }
+        Console.WriteLine("Elija el segundo num:");
+        texto = Console.ReadLine();
+        if (!float.TryParse(texto, out num2))
+        {
+            Console.WriteLine("La cadena es un texto, intentar de nuevo");
+            continue;
+        }
+        break;
+    } while (true);
+    Console.WriteLine($"El maximo entre {num1} y {num2} es: {Math.Max(num1, num2)} y el minimo es:{Math.Min(num1, num2)}");
+
     do
     {
         Console.WriteLine("---Menu---");
-        Console.WriteLine("Elegir una operacion para realizar: \n 1:Sumar \n 2:Restar \n 3:Multiplicar\n4:Dividir\n5:Valor Absoluto\n6:Cuadrado\n7:Raiz Cuadrada\n8:Seno\n9:Coseno\n10:Parte entera de un float");
+        Console.WriteLine("Elegir una operacion para realizar: \n 1:Sumar \n 2:Restar \n 3:Multiplicar\n4:Dividir");
         texto = Console.ReadLine();
         eleccion = int.Parse(texto);
     } while (eleccion <= 0 || eleccion > 4);
@@ -57,11 +77,6 @@ do
         Console.WriteLine("Elegir segundo numero:");
         texto = Console.ReadLine();
         num2 = float.Parse(texto);
-    }
-
-    switch (eleccion)
-    {
-
     }
 
     switch (eleccion)
